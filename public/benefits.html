@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits  </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0; /* Positions it at the top of the page */
+    left: 0; /* Ensures it spans from the left */
+    width: 100%; /* Makes the header take the full width of the viewport */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    color: white;
+    z-index: 1000; /* Ensures it stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for separation */
+}
+
+.logo-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.logo-circle:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+header .navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+header .navbar ul li {
+    margin: 0 20px;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    color: orange;
+    font-size: 18px;
+}
+/* Adds spacing to the body content to avoid hiding it under the fixed header */
+body {
+    padding-top: 100px; /* Adjust to the height of your header */
+}
+           /* Dropdown container */
+   .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Clickable link for dropdown */
+.dropdown .dropdown-link {
+    cursor: pointer;
+    color: orange;
+    padding: 5px 5px; /* Padding remains the same */
+     
+    font-size: 18px; /* Small font size for dropdown link */
+    text-decoration: none;
+}
+
+/* Hover effect on dropdown link */
+.dropdown .dropdown-link:hover {
+    color: orange; /* Black on hover */
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    content: -2px; /* Align dropdown content to the center*/
+    background-color: white; /* Background color */
+    min-width: 200px;
+    border: 2px solid black;
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1;
+    padding: 10px 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: orange;
+    padding: 10px 15px; /* Adjusted padding */
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 16px; /* Small font size for dropdown links */
+    border-radius: 8px; /* Rounded corners for links */
+}
+
+/* Hover effect on dropdown links */
+.dropdown-content a:hover {
+    background-color: #ee4373; /* Hover background */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+ /* Menu icon for mobile */
+.menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #666;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Transform menu icon into "X" */
+        .menu-icon.active .bar1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-icon.active .bar2 {
+            opacity: 0;
+        }
+
+        .menu-icon.active .bar3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .benefits-section {
+            width: 90%; /* Full width with padding on smaller devices */
+            max-width: 800px; /* Set maximum width for benefits section */
+            margin: 20px auto; /* Center the section */
+        }
+
+        .benefits-section h2 {
+            font-size: 2.5em; /* Responsive font size */
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .timeline {
+            width: 100%; /* Full width of the container */
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px; /* Adjusted margin for better spacing */
+            position: relative;
+        }
+
+        .timeline-item .icon {
+            width: 70px; /* Reduced icon size for better proportions */
+            height: 70px; /* Ensured it remains a circle */
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em; /* Size of the icon */
+            color: #333;
+            position: relative;
+            z-index: 2;
+            transition: transform 1s ease-in-out; /* Animation duration */
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse; /* Alternates layout */
+        }
+
+        .timeline-item .text-content {
+            flex: 1;
+            padding: 15px; /* Reduced padding for text */
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 0 20px; /* Side margins */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+          h4 {
+            color: #333;
+            text-align: right;
+            font-size: 1.5em; /* Increased heading size for emphasis */
+            font-weight: bold;
+            margin-bottom: 10px;
+        } 
+        .timeline-item .text-content h3,
+        .timeline-item .text-content h4 {
+            color: #333;
+            font-size: 1.5em; /* Increased heading size for emphasis */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .timeline-item .text-content p {
+            color: #777;
+            line-height: 1.6; /* Improved line height for readability */
+        }
+
+        /* Timeline connector */
+        .connector {
+            position: absolute;
+            width: 4px; /* Adjusted connector width */
+            background-color: #3498db;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+      /* Left-to-Right Movement Animation */
+        @keyframes moveRight {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(40px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Right-to-Left Movement Animation */
+        @keyframes moveLeft {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-40px); }
+            100% { transform: translateX(0); }
+        }
+
+        .icon.h3-move {
+            animation: moveRight 1s ease-in-out forwards;
+        }
+
+        .icon.h4-move {
+            animation: moveLeft 1s ease-in-out forwards;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            width: 100%; /* Full width footer */
+            max-width: 100%; /* Max width for footer */
+            margin-top: 40px; /* Margin above footer */
+        }
+
+        footer a {
+            color: white; /* Ensured links in footer are white */
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            /* Hide main navbar and show menu icon */
+            .navbar {
+                display: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+             
+/* Left-aligned dropdown menu for mobile */
+            
+.navbar-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 308px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Lightened border for a soft look */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    backdrop-filter: blur(10px); /* Glassy blur effect */
+    padding-top: 20px;
+    z-index: 1000;
+    border-radius: 12px; /* Rounded corners for card effect */
+}
+            .navbar-mobile ul {
+                list-style: none;
+                padding: 10px;
+                margin: 0;
+            }
+
+            .navbar-mobile ul li {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+            }
+
+            .navbar-mobile ul li a {
+                text-decoration: none;
+                color: orange;
+                font-size: 18px;
+            }
+
+            /* Toggle menu visibility */
+            .navbar-mobile.active {
+                display: block;
+            }
+            /* Reorder About Us section in mobile */
+            .benefits-section h2 {
+                font-size: 2em;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: left;
+            }
+             
+            .timeline-item .text-content {
+                 
+                margin: 10px 0;
+        }
+        footer {
+        display: flex; /* Use flexbox for horizontal layout */
+        justify-content: center; /* Center align content */
+        align-items: center; /* Vertically center items */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        font-size: x-small;
+    }
+        
+    }
+        /* Hide mobile navbar on larger screens */
+        @media (min-width: 769px) {
+            .navbar-mobile {
+                display: none !important;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <a href="index.html"> <!-- Link to the home page (adjust the link as needed) -->
+            <div class="logo">
+                <img src="https://assets.onecompiler.app/42ucesb3u/42wr2w44q/image%20(2).png" alt="Your Logo" class="logo-circle">
+            </div>
+        </a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-link">Logins</a>
+                    <div class="dropdown-content">
+                        <a href="admin.html">Admin Login</a>
+                        <a href="teacher.html">Teacher Login</a>
+                        <a href="parent.html">Parent Login</a>
+                        <a href="student.html">Student Login</a>
+                        <a href="counselor.html">Counselor Login</a>
+                        <a href="management.html">Management Login</a>
+                        <a href="employee.html">Employee (Role Based)</a>
+                    </div>
+                </li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar-mobile" id="navbar-mobile">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-link">Logins</a>
+                <div class="dropdown-content">
+                    <a href="admin.html">Admin Login</a>
+                    <a href="teacher.html">Teacher Login</a>
+                    <a href="parent.html">Parent Login</a>
+                    <a href="student.html">Student Login</a>
+                    <a href="counselor.html">Counselor Login</a>
+                    <a href="management.html">Management Login</a>
+                    <a href="employee.html">Employee (Role Based)</a>
+                </div>
+            </li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="benefits.html">Benefits</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="benefits-section">
+        <h2>Benefits of Our School</h2>
+        <div class="timeline">
+            <div class="connector"></div>
+
+            <div class="timeline-item">
+                <div class="icon h3-move">📢</div>
+                <div class="text-content">
+                    <h3>Enhanced Communication</h3>
+                    <p>Parents, students, and teachers can stay informed through timely updates on events, announcements, and school news.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h4-move">📚</div>
+                <div class="text-content">
+                    <h4>Accessible Resources</h4> 
+                    <p>Students can access study materials, assignments, and other resources from home, promoting learning outside the classroom.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h3-move">📝</div>
+                <div class="text-content">
+                    <h3>Online Admissions</h3>
+                    <p>Streamlined application process for new admissions, reducing paperwork and saving time for both parents and administrators.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h4-move">📅</div>
+                <div class="text-content">
+                    <h4>Event & Calendar Updates</h4>
+                    <p>Easy access to the school calendar helps students and parents keep track of important dates, events, and holidays.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h3-move">👩‍🏫</div>
+                <div class="text-content">
+                    <h3>Parent-Teacher Interaction</h3>
+                    <p>Convenient scheduling of parent-teacher meetings and access to progress reports, fostering better involvement in student development.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h4-move">🚀</div>
+                <div class="text-content">
+                    <h4>Enhanced Student Engagement</h4>
+                    <p>Interactive features like quizzes, blogs, and discussion forums encourage student participation and engagement.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h3-move">🏆</div>
+                <div class="text-content">
+                    <h3>Showcasing Achievements</h3>
+                    <p>A platform to highlight student and school achievements, fostering pride and motivation within the school community.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h4-move">🔒</div>
+                <div class="text-content">
+                    <h4>Secure and Private</h4>
+                    <p>Provides a secure environment for accessing student information, ensuring privacy and data protection.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h3-move">💻</div>
+                <div class="text-content">
+                    <h3>Online Assessments</h3>
+                    <p>Teachers can post assessments and assignments online, making it easier for students to complete and submit work remotely.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="icon h4-move">🌟</div>
+                <div class="text-content">
+                    <h4>Promotes School Values and Culture</h4>
+                    <p>Showcases the school’s mission, values, and culture, giving prospective families a better understanding of what makes the school unique.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer>
+    <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
+</footer>
+     <script>
+        // Apply movement classes on page load
+        window.onload = function() {
+            const h3Icons = document.querySelectorAll('.icon.h3-move');
+            h3Icons.forEach(icon => icon.classList.add('h3-move'));
+
+            const h4Icons = document.querySelectorAll('.icon.h4-move');
+            h4Icons.forEach(icon => icon.classList.add('h4-move'));
+        };
+        <!-- JavaScript for Mobile Toggle -->
+     
+        function toggleMobileMenu() {
+            const menuIcon = document.querySelector('.menu-icon');
+            const mobileNav = document.getElementById('navbar-mobile');
+            menuIcon.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+    </script>
+    
+</body>
+</html>
+ 

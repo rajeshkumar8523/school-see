@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #e0e5ec;
+            flex-direction: column;
+        }
+        .logo-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;           
+            margin-top: 45%; 
+            object-fit: cover;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
+  .container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    background-color: #e0e5ec;
+    box-shadow: 15px 15px 30px #babecc, -15px -15px 30px #ffffff ;
+     border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+}
+.container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 6px; /* Adjusted width for a more defined center line */
+        background: rgba(0, 0, 0, 0.3); /* Solid color for the center line */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3), 5px 0 15px rgba(255, 255, 255, 0.5);
+        /* Increased shadow size and opacity for a more intense crease effect */
+        transform: translateX(-50%);
+        pointer-events: none;
+        border-radius: 10px; /* Softens edges for a realistic curve */
+    }
+
+
+/* For mobile devices (max-width: 767px) */
+@media (max-width: 767px) {
+    .container::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45%; 
+        width: auto;
+        height: 6px; /* Adjusted height for a more defined center line */
+        background: rgba(0, 0, 0, 0.3); /* Solid color for the center line */
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(255, 255, 255, 0.5);
+        /* Increased shadow size and opacity for a more intense crease effect */
+        transform: translateY(-50%);
+        pointer-events: none;
+        border-radius: 10px; /* Softens edges for a realistic curve */
+    }
+}
+        .left {
+            background-color: #97c8d6;
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+             
+        }
+        .left h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .left ul {
+            list-style: none;
+            line-height: 1.8;
+            color: #333;
+        }
+        .left img {
+            margin-top: 20px;
+            width: 100%;
+        }
+        .right {
+            background-color: #e0e5ec;
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 0 20px 20px 0;
+        }
+        .right h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Drop shadow added */
+}
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+             
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-radius: 12px;
+            background: #e0e5ec;
+            box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+        }
+        .password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #E53D6D;  /* Initial color */
+    font-size: 20px;  /* Adjust font size if needed */
+}
+/* Show the popup on hover */
+.toggle-password:hover::after {
+    visibility: visible;  /* Show on hover */
+    opacity: 1;
+}
+
+/* Hover effect for the icon itself */
+.toggle-password:hover {
+    color: #E53D6D;  /* Change icon color on hover */
+}
+
+/* Change color when the icon is clicked */
+.toggle-password.clicked {
+    color:  #E53D6D;  /* Change color when clicked (e.g., green) */
+}
+
+
+        .login-btn {
+    background: #97c8d6; /* New background color */
+    color: #333;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: inset 5px 5px 10px  #7ca3ae, inset -5px -5px 10px  #b5ebf1; /* Adjusted shadow colors for new background */
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #85b8c4; /* Slightly darker shade of #97c8d6 on hover */
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -3px 6px rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px); /* Raise button slightly */
+}
+.right .forgot-password {
+            font-size: 14px;
+            color: #555;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .right .forgot-password a {
+            color: #E53D6D;
+            text-decoration: none;
+        }
+        .right .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+        footer a {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;
+            margin-top: 25px;
+            object-fit: cover;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
+            .container {
+                flex-direction: column;
+        width: 80%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 20px; /* Apply rounded corners */
+    }
+            .left, .right {
+                width: 100%;
+                padding: 20px;
+            }
+            .left h2, .right h2 {
+                font-size: 22px;
+                text-align: center;
+            }
+            .form-group input {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .login-btn {
+                font-size: 14px;
+                padding: 8px;
+            }
+            footer {
+                font-size: x-small;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Logo -->
+    <a href="index.html">
+        <div class="logo">
+            <img src="https://assets.onecompiler.app/42ucesb3u/42wr2w44q/image%20(2).png" alt="Your Logo" class="logo-circle">
+        </div>
+    </a>
+    <!-- Container -->
+    <div class="container">
+        <div class="left">
+            <h2> Parent Login</h2>
+            <ul>
+                <li>Get Notifications</li>
+                <li>Check Report Cards</li>
+                <li>View Student Attendance</li>
+                <li>Homework/Assignments</li>
+                <li>JOIN Online Classes</li>
+                <li>Attend Online Exams</li>
+                <li>And more...</li>
+            </ul>
+        </div>
+        <div class="right">
+            <h2>Parent Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="school-name">Enter School Name</label>
+                    <input type="text" id="school-name" placeholder="School Name">
+                </div>
+                <div class="form-group">
+                    <label for="enroll id">Enter Enroll ID</label>
+                    <input type="text" id="Enroll ID" placeholder="Enroll Id">
+                </div>
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <div class="password-container">
+                        <input type="password" id="password" placeholder="Enter your password">
+                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
+                    </div>
+                </div>                
+                <button type="submit" class="login-btn">Login</button>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
+    </footer>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const eyeIcon = document.getElementById("eyeIcon");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
+        function togglePasswordVisibility() {
+    var passwordField = document.getElementById('password');
+    var toggleIcon = document.querySelector('.toggle-password');
+    
+    // Toggle password visibility
+    if (passwordField.type === "password") {
+        passwordField.type = "text";  // Show password
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');  // Change icon to eye-slash
+    } else {
+        passwordField.type = "password";  // Hide password
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');  // Change icon back to eye
+    }
+
+    // Toggle the clicked class to change icon color
+    toggleIcon.classList.toggle('clicked');
+}
+
+    </script>
+</body>
+</html>

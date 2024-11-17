@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title> Assessments</title>
+<style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+  body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0; /* Positions it at the top of the page */
+    left: 0; /* Ensures it spans from the left */
+    width: 100%; /* Makes the header take the full width of the viewport */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    color: white;
+    z-index: 1000; /* Ensures it stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for separation */
+}
+
+.logo-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.logo-circle:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+header .navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+header .navbar ul li {
+    margin: 0 20px;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    color: orange;
+    font-size: 18px;
+}
+/* Adds spacing to the body content to avoid hiding it under the fixed header */
+body {
+    padding-top: 100px; /* Adjust to the height of your header */
+}
+         /* Dropdown container */
+   .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Clickable link for dropdown */
+.dropdown .dropdown-link {
+    cursor: pointer;
+    color: orange;
+    padding: 5px 5px; /* Padding remains the same */
+     
+    font-size: 18px; /* Small font size for dropdown link */
+    text-decoration: none;
+}
+
+/* Hover effect on dropdown link */
+.dropdown .dropdown-link:hover {
+    color: orange; /* Black on hover */
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    content: -2px; /* Align dropdown content to the center*/
+    background-color: white; /* Background color */
+    min-width: 200px;
+    border: 2px solid black;
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1;
+    padding: 10px 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 10px 15px; /* Adjusted padding */
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 16px; /* Small font size for dropdown links */
+    border-radius: 8px; /* Rounded corners for links */
+}
+
+/* Hover effect on dropdown links */
+.dropdown-content a:hover {
+    background-color: #ee4373; /* Hover background */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  /* Menu icon for mobile */
+  .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #666;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Transform menu icon into "X" */
+        .menu-icon.active .bar1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-icon.active .bar2 {
+            opacity: 0;
+        }
+
+        .menu-icon.active .bar3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+  /* Container Styles */
+  .container {
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+  }
+/* Heading Styles */
+  h1 {
+    font-size: 36px; /* Adjusted font size for the heading */
+    color: #333; /* Heading color */
+    margin: 20px 0; /* Margin around the heading */
+    text-align: center; /* Centered text */
+  }
+   
+  /* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+  width: 100vw; /* Full-width footer */
+  box-sizing: border-box; /* Ensures padding doesn't add extra width */
+}
+
+footer a {
+  color: white;
+}
+
+
+  .step {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  /* Diamond shape with staggered alignment */
+  .diamond {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    background-color: #1565c0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 1;
+  }
+
+  .diamond span {
+    transform: rotate(-45deg);
+  }
+
+  /* Position diamonds in staggered form */
+  .step:nth-child(odd) .diamond {
+    left: -50px;
+  }
+
+  .step:nth-child(even) .diamond {
+    left: 40px;
+  }
+
+  /* Line connecting to text container */
+  .line {
+    position: relative;
+    width: 50%;
+    height: 2px; /* Thickness of the line */
+    background-color: #333; /* Color of the line */
+    margin-left: 40px; /* Space from diamond to the line */
+  }
+
+  /* Content box */
+  .text-container {
+    padding: 10px 15px;
+    width: 60%;
+    text-align: left;
+    margin-left: 10px; /* Space from line to text */
+     
+  }
+
+  .text-container h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .text-container p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #666;
+    padding-left: 20px; /* Indent for second line */
+  }
+
+  /* Colors for each step */
+  .step:nth-child(1) .diamond { background-color: #1565C0; }
+  .step:nth-child(2) .diamond { background-color: #2E7D32; }
+  .step:nth-child(3) .diamond { background-color: #00897B; }
+  .step:nth-child(4) .diamond { background-color: #424242; }
+  .step:nth-child(5) .diamond { background-color: #C62828; }
+  .step:nth-child(6) .diamond { background-color: #F9A825; }
+  .step:nth-child(7) .diamond { background-color: #8E24AA; }
+  .step:nth-child(8) .diamond { background-color: #3F51B5; }
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    header {
+                padding: 10px 20px;
+            }
+
+            /* Hide main navbar and show menu icon */
+            .navbar {
+                display: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+/* Left-aligned dropdown menu for mobile */
+            
+            .navbar-mobile {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: auto;
+                background-color: #fff;
+                border-right: 2px solid #333;
+                border-bottom: 2px solid #333;
+                box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+                padding-top: 20px;
+                z-index: 1000;
+            }
+
+            .navbar-mobile ul {
+                list-style: none;
+                padding: 10px;
+                margin: 0;
+            }
+
+            .navbar-mobile ul li {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+            }
+
+            .navbar-mobile ul li a {
+                text-decoration: none;
+                color: orange;
+                font-size: 18px;
+            }
+
+            /* Toggle menu visibility */
+            .navbar-mobile.active {
+                display: block;
+            }
+
+            @media (max-width: 768px) {
+    .container {
+        width: 80%; /* Increase the width on smaller screens */
+    }
+
+    .step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .diamond {
+        position: relative;
+        left: 0;
+        margin-bottom: 10px;
+         size: 20px;
+    }
+
+    .line {
+        width: 40%;
+        margin: 10%;
+        height: 1px;
+    }
+
+    .text-container {
+    width: 50%;
+    margin-left: auto; /* Pushes the container to the right */
+    text-align:  left; /* Aligns text to the right within the container */
+}
+
+.text-container h4 {
+    font-size: 14px; /* Slightly smaller font size for headings */
+}
+
+.text-container p {
+    font-size: 14px; /* Adjusted font size for readability on mobile */
+}
+            }
+  }
+         /* Hide mobile navbar on larger screens */
+         @media (min-width: 769px) {
+            .navbar-mobile {
+                display: none !important;
+            }
+          }
+</style>
+</head>
+<body>
+
+ <!-- Header with Navigation -->
+ <header>
+  <a href="index.html"> <!-- Link to the home page (adjust the link as needed) -->
+    <div class="logo">
+        <img src="https://assets.onecompiler.app/42ucesb3u/42wr2w44q/image%20(2).png" alt="Your Logo" class="logo-circle">
+    </div>
+</a>
+  <nav class="navbar">
+      <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+              <a class="dropdown-link">Logins</a>
+              <div class="dropdown-content">
+                  <a href="admin.html">Admin Login</a>
+                  <a href="teacher.html">Teacher Login</a>
+                  <a href="parent.html">Parent Login</a>
+                  <a href="student.html">Student Login</a>
+                  <a href="counselor.html">Counselor Login</a>
+                  <a href="management.html">Management Login</a>
+                  <a href="employee.html">Employee (Role Based)</a>
+              </div>
+          </li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+      </ul>
+  </nav>
+  <div class="menu-icon" onclick="toggleMobileMenu()">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+  </div>
+</header>
+
+<!-- Mobile Navbar -->
+<nav class="navbar-mobile" id="navbar-mobile">
+  <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+          <a class="dropdown-link">Logins</a>
+          <div class="dropdown-content">
+              <a href="admin.html">Admin Login</a>
+              <a href="teacher.html">Teacher Login</a>
+              <a href="parent.html">Parent Login</a>
+              <a href="student.html">Student Login</a>
+              <a href="counselor.html">Counselor Login</a>
+              <a href="management.html">Management Login</a>
+              <a href="employee.html">Employee (Role Based)</a>
+          </div>
+      </li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="benefits.html">Benefits</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <h1>Assessments</h1> <!-- Added heading -->
+  
+<div class="container">
+  <div class="step">
+    <div class="diamond"><span>01</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Grade-Level & Subject-Specific Tests</h4>
+      <p>Each assessment is aligned with school curricula, covering core subjects like math, science,   </p>
+      <p>tailored to the appropriate grade level. This ensures that students are evaluated on relevant topics according to school standards.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>02</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Formative & Summative Assessments</h4>
+      <p>We offer both formative assessments for day-to-day progress monitoring and summative assessments</p>
+      <p> to evaluate cumulative learning at the end of units or terms, supporting a balanced approach to student evaluation.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>03</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Benchmark Assessments</h4>
+      <p>These assessments allow schools to set a baseline for student achievement at the beginning of the year and measure growth</p>
+      <p> at intervals, helping to identify school-wide trends and inform instructional strategies.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>04</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Skill-Based and Competency Assessments</h4>
+      <p>Our assessments focus not only on content but also on essential skills like critical thinking, problem-solving, </p>
+      <p>and analytical abilities, ensuring students build competencies they can apply beyond school.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>05</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Customized Learning Paths</h4>
+      <p>Students receive insights on where they excel and where they can improve, </p>
+      <p> creating an individualized learning experience that supports their unique needs.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>06</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Performance Feedback</h4>
+      <p>With real-time results and explanations, students understand their mistakes </p>
+      <p>and learn the correct methods, reinforcing learning and enabling continuous growth.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>07</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Confidence for Future Assessments</h4>
+      <p>By practicing with quizzes, interactive tests, and mock exams, students gain confidence, improve time </p>
+      <p>management, and feel prepared for both in-school exams and standardized tests.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="diamond"><span>08</span></div>
+    <div class="line"></div>
+    <div class="text-container">
+      <h4>Encourages a Growth Mindset</h4>
+      <p>Our assessments emphasize progress and improvement, </p>
+      <p>motivating students to see learning as an ongoing journey rather than just aiming for a score.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
+</footer>
+ <!-- JavaScript for Mobile Toggle -->
+ <script>
+  function toggleMobileMenu() {
+      const menuIcon = document.querySelector('.menu-icon');
+      const mobileNav = document.getElementById('navbar-mobile');
+      menuIcon.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+              * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0; /* Positions it at the top of the page */
+    left: 0; /* Ensures it spans from the left */
+    width: 100%; /* Makes the header take the full width of the viewport */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    color: white;
+    z-index: 1000; /* Ensures it stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for separation */
+}
+
+.logo-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.logo-circle:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+header .navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+header .navbar ul li {
+    margin: 0 20px;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    color: orange;
+    font-size: 18px;
+}
+/* Adds spacing to the body content to avoid hiding it under the fixed header */
+body {
+    padding-top: 100px; /* Adjust to the height of your header */
+}
+        .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Clickable link for dropdown */
+.dropdown .dropdown-link {
+    cursor: pointer;
+    color: orange;
+    padding: 5px 5px; /* Padding remains the same */
+     
+    font-size: 18px; /* Small font size for dropdown link */
+    text-decoration: none;
+}
+
+/* Hover effect on dropdown link */
+.dropdown .dropdown-link:hover {
+    color: orange; /* Black on hover */
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    content: -2px; /* Align dropdown content to the center*/
+    background-color: white; /* Background color */
+    min-width: 200px;
+    border: 2px solid black;
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1;
+    padding: 10px 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 10px 15px; /* Adjusted padding */
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 16px; /* Small font size for dropdown links */
+    border-radius: 8px; /* Rounded corners for links */
+}
+
+/* Hover effect on dropdown links */
+.dropdown-content a:hover {
+    background-color: #ee4373; /* Hover background */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+        /* Menu icon for mobile */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #666;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Transform menu icon into "X" */
+        .menu-icon.active .bar1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-icon.active .bar2 {
+            opacity: 0;
+        }
+
+        .menu-icon.active .bar3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* About Us Section */
+        .about-us {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 50px;
+            background-color: #fff;
+            max-width: 100%;
+            width: 100%;
+            color: black;
+        }
+
+        .about-us-text {
+            max-width: 50%;
+        }
+
+        .about-us-text h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-us-text .highlight {
+            color: #E53D6D;
+        }
+
+        .about-us-text p {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        /* Container for images */
+.about-us-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Distribute space between images */
+    gap: 20px; /* Add space between the images */
+}
+
+/* Image 1 on the left */
+.left-image img {
+    width: 60%; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Image 2 on the right (smaller size) */
+.right-image img {
+    width: 20%; /* Smaller size compared to Image 1 */
+    height: 10%;
+}
+
+/* Text content positioned below both images */
+.about-us-text {
+    margin-top: 0; /* Reset any margin on top */
+    text-align: left; /* Align text to the left */
+    font-size: 16px;
+    line-height: 1.6;
+}
+          /* Disable right-click on all images */
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none; /* Prevents right-click */
+}
+        .about-us-image img {
+            width: 900px;
+            height: 800px;
+            object-fit: contain;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+        }
+       /* Hide Mobile Section on PC */
+.about-us-mobile {
+    display: block; /* Mobile section is visible by default */
+}
+
+.about-us-pc {
+    display: none; /* PC section is hidden by default */
+}
+
+/* On larger screens (PC view), hide the mobile section and show the PC section */
+@media (min-width: 768px) {
+    .about-us-mobile {
+        display: none; /* Hide mobile section on PC */
+    }
+    
+    .about-us-pc {
+        display: block; /* Show PC section on larger screens */
+    }
+}
+
+/* Show Mobile Section only on smaller screens */
+@media (max-width: 767px) {
+    .about-us-mobile {
+        display: block; /* Show the mobile section */
+    }
+    
+    .about-us-pc {
+        display: none; /* Hide the PC section */
+    }
+}
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            /* Hide main navbar and show menu icon */
+            .navbar {
+                display: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+/* Left-aligned dropdown menu for mobile */
+.navbar-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 308px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Lightened border for a soft look */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    backdrop-filter: blur(10px); /* Glassy blur effect */
+    padding-top: 20px;
+    z-index: 1000;
+    border-radius: 12px; /* Rounded corners for card effect */
+}
+
+.navbar-mobile ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.navbar-mobile ul li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.3); /* Lightened border for transparency */
+    text-align: left;
+}
+
+.navbar-mobile ul li a {
+    text-decoration: none;
+    color: orange;
+    font-size: 21px;
+}
+
+/* Toggle menu visibility */
+.navbar-mobile.active {
+    display: block;
+}
+
+            /* Reorder About Us section in mobile */
+            .about-us {
+                flex-direction: column;
+                padding: 50px 20px;
+            }
+
+            .about-us-image {
+                order: -1;
+                margin-bottom: 20px;
+            }
+
+            .about-us-image img {
+                width: 100%;
+                height: auto;
+            }
+            .about-us-text {
+                max-width: 100%;
+                text-align: center;
+            }
+            footer {
+        display: flex; /* Use flexbox for horizontal layout */
+        justify-content: center; /* Center align content */
+        align-items: center; /* Vertically center items */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        font-size: x-small;
+    }
+
+        }
+          /* Hide mobile navbar on larger screens */
+          @media (min-width: 769px) {
+            .navbar-mobile {
+                display: none !important;
+            }
+        }
+        /* Hide the default active click color for mobile */
+@media (max-width: 768px) {
+    .logo-link:active {
+        background: transparent; /* Remove any background color on active state */
+        outline: none; /* Remove the outline when the logo is clicked */
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <a href="index.html"> <!-- Link to the home page (adjust the link as needed) -->
+            <div class="logo">
+                <img src="https://assets.onecompiler.app/42ucesb3u/42wr2w44q/image%20(2).png" alt="Your Logo" class="logo-circle">
+            </div>
+        </a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-link">Logins</a>
+                    <div class="dropdown-content">
+                        <a href="admin.html">Admin Login</a>
+                        <a href="teacher.html">Teacher Login</a>
+                        <a href="parent.html">Parent Login</a>
+                        <a href="student.html">Student Login</a>
+                        <a href="counselor.html">Counselor Login</a>
+                        <a href="management.html">Management Login</a>
+                        <a href="employee.html">Employee (Role Based)</a>
+                    </div>
+                </li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar-mobile" id="navbar-mobile">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-link">Logins</a>
+                <div class="dropdown-content">
+                    <a href="admin.html">Admin Login</a>
+                    <a href="teacher.html">Teacher Login</a>
+                    <a href="parent.html">Parent Login</a>
+                    <a href="student.html">Student Login</a>
+                    <a href="counselor.html">Counselor Login</a>
+                    <a href="management.html">Management Login</a>
+                    <a href="employee.html">Employee (Role Based)</a>
+                </div>
+            </li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="benefits.html">Benefits</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+<!-- About Us Section for mobile view (visible only on mobile) -->
+<section class="about-us-mobile" id="about-mobile">
+    <div class="about-us-image">
+        <img src="https://assets.onecompiler.app/42ucesb3u/42xmybtx8/IMG_20241109_234510.png" alt="Team brainstorming ideas">
+    </div>
+    <div class="about-us-text">
+        <p>Welcome to <strong>School See</strong>, your all-in-one solution for simplifying attendance management in schools. Our app is designed to help schools, teachers, and parents maintain accurate attendance records with ease and efficiency.</p>
+        <p>With School See, schools can: </p>
+        <p> - Track student attendance in real-time.</p>
+        <p> - Generate insightful reports for better decision-making.</p>
+        <p> - Enhance communication between teachers, students, and parents.</p>
+        <p>Our mission is to provide a secure, reliable platform that makes attendance tracking simple and transparent, helping schools focus more on learning and less on paperwork. Whether you're an educator, administrator, or parent, School See is here to make attendance tracking smarter and more convenient.</p>
+        <p><strong>Join us in improving education through smarter attendance management with School See!</strong></p>
+    </div>
+</section>
+
+<!-- About Us Section for PC view (visible only on PC) -->
+<section class="about-us-pc" id="about-pc">
+    <div class="about-us-container">
+        <!-- Image 1 on the left -->
+        <div class="about-us-image left-image">
+            <img src="https://assets.onecompiler.app/42ucesb3u/42xak2ey3/scl3.png" alt="Team brainstorming ideas">
+        </div>
+        
+        <!-- Image 2 on the right with smaller size -->
+        <div class="about-us-image right-image">
+            <img src="https://assets.onecompiler.app/42ucesb3u/42xmybtx8/WhatsApp%20Image%202024-11-09%20at%2011.55.25%20PM.jpeg" alt="Team brainstorming ideas">
+        </div>
+    </div>
+
+    <!-- Content directly below of 2 image -->
+    <div class="about-us-text">
+        <p>Welcome to <strong>School See</strong>, your all-in-one solution for simplifying attendance management in schools. Our app is designed to help schools, teachers, and parents maintain accurate attendance records with ease and efficiency.</p>
+        <p>With School See, schools can: </p>
+        <p> - Track student attendance in real-time.</p>
+        <p> - Generate insightful reports for better decision-making.</p>
+        <p> - Enhance communication between teachers, students, and parents.</p>
+        <p>Our mission is to provide a secure, reliable platform that makes attendance tracking simple and transparent, helping schools focus more on learning and less on paperwork. Whether you're an educator, administrator, or parent, School See is here to make attendance tracking smarter and more convenient.</p>
+        <p><strong>Join us in improving education through smarter attendance management with School See!</strong></p>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
+</footer>
+     <!-- JavaScript for Mobile Toggle -->
+    <script>
+        function toggleMobileMenu() {
+            const menuIcon = document.querySelector('.menu-icon');
+            const mobileNav = document.getElementById('navbar-mobile');
+            menuIcon.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+         
+
+    </script>
+</body>
+</html>
