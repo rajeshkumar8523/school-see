@@ -13,7 +13,7 @@
         }
 
   body {
-            background-color: #f4f4f4;
+            background-color: #e0e5ec;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,28 +32,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: #97c8d6;
     padding: 20px;
-    color: white;
+    color: #333;
     z-index: 1000; /* Ensures it stays on top of other content */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for separation */
 }
 
 .logo-circle {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-.logo-circle:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;           
+            margin-top: 45%; 
+            object-fit: cover;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
 
-header .navbar ul {
+        header .navbar ul {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -67,15 +64,20 @@ header .navbar ul li {
 
 header .navbar ul li a {
     text-decoration: none;
-    color: orange;
+    color: #333;
     font-size: 18px;
+    transition: color 0.3s ease; /* Smooth transition effect */
 }
+
+header .navbar ul li a:hover {
+    color: #fff; /* Change to your desired hover color */
+}
+
 /* Adds spacing to the body content to avoid hiding it under the fixed header */
 body {
     padding-top: 100px; /* Adjust to the height of your header */
 }
-         /* Dropdown container */
-   .dropdown {
+.dropdown {
     display: inline-block;
     position: relative;
 }
@@ -83,55 +85,57 @@ body {
 /* Clickable link for dropdown */
 .dropdown .dropdown-link {
     cursor: pointer;
-    color: orange;
+    color: #333;
     padding: 5px 5px; /* Padding remains the same */
-     
     font-size: 18px; /* Small font size for dropdown link */
     text-decoration: none;
 }
 
 /* Hover effect on dropdown link */
 .dropdown .dropdown-link:hover {
-    color: orange; /* Black on hover */
+    color: #fff; /* White on hover */
 }
 
-/* Dropdown content */
+/* Dropdown content with enhanced glassy effect */
 .dropdown-content {
     display: none;
     position: absolute;
-    content: -2px; /* Align dropdown content to the center*/
-    background-color: white; /* Background color */
+    background: rgba(255, 255, 255, 0.4); /* More transparent white */
+    backdrop-filter: blur(15px) saturate(1.5); /* Increased blur and saturation for stronger glass effect */
     min-width: 200px;
-    border: 2px solid black;
-    border-radius: 1px; /* Rounded corners */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Brighter border for contrast */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
     z-index: 1;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding */
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
     float: none;
     color: black;
-    padding: 10px 15px; /* Adjusted padding */
+    padding: 12px 20px; /* Adjusted padding */
     text-decoration: none;
     display: block;
     text-align: center;
-    font-size: 16px; /* Small font size for dropdown links */
+    font-size: 16px; /* Font size remains same */
     border-radius: 8px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
 /* Hover effect on dropdown links */
 .dropdown-content a:hover {
-    background-color: #ee4373; /* Hover background */
+    background-color:  #97c8d6;
+    color: white; /* White text on hover */
 }
 
 /* Show dropdown content on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
-  /* Menu icon for mobile */
-  .menu-icon {
+
+        /* Menu icon for mobile */
+        .menu-icon {
             display: none;
             flex-direction: column;
             cursor: pointer;
@@ -141,7 +145,7 @@ body {
         .menu-icon div {
             width: 25px;
             height: 3px;
-            background-color: #666;
+            background-color: #333;
             transition: transform 0.3s, opacity 0.3s;
         }
 
@@ -157,6 +161,7 @@ body {
         .menu-icon.active .bar3 {
             transform: rotate(-45deg) translate(5px, -5px);
         }
+
   /* Container Styles */
   .container {
     width: 80%;
@@ -173,23 +178,6 @@ body {
     margin: 20px 0; /* Margin around the heading */
     text-align: center; /* Centered text */
   }
-   
-  /* Footer Styles */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: auto;
-  width: 100vw; /* Full-width footer */
-  box-sizing: border-box; /* Ensures padding doesn't add extra width */
-}
-
-footer a {
-  color: white;
-}
-
-
   .step {
     display: flex;
     align-items: center;
@@ -269,12 +257,57 @@ footer a {
   .step:nth-child(6) .diamond { background-color: #F9A825; }
   .step:nth-child(7) .diamond { background-color: #8E24AA; }
   .step:nth-child(8) .diamond { background-color: #3F51B5; }
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    header {
+  footer {
+  background-color: #97c8d6;
+  color: #333;
+  text-align: center;
+   font-size: small;
+  padding: 20px 0;
+  margin-top: auto;
+  width: 100vw; /* Full-width footer */
+  box-sizing: border-box; /* Ensures padding doesn't add extra width */
+}
+
+footer a {
+  color: #97c8d6;
+}
+#scrollBtn {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    height: 80px;
+    width: 80px;
+    outline: none;
+    background-color: #97c8d6;
+    color: white;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+#scrollBtn:hover {
+    background-color: #E53D6D;
+}
+   /* Responsive styles */
+   @media (max-width: 768px) {
+            header {
                 padding: 10px 20px;
             }
-
+            .logo-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;           
+            margin-top: 2px; 
+            object-fit: cover;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
             /* Hide main navbar and show menu icon */
             .navbar {
                 display: none;
@@ -284,89 +317,178 @@ footer a {
                 display: flex;
             }
 /* Left-aligned dropdown menu for mobile */
-            
-            .navbar-mobile {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 250px;
-                height: auto;
-                background-color: #fff;
-                border-right: 2px solid #333;
-                border-bottom: 2px solid #333;
-                box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-                padding-top: 20px;
-                z-index: 1000;
-            }
-
-            .navbar-mobile ul {
-                list-style: none;
-                padding: 10px;
-                margin: 0;
-            }
-
-            .navbar-mobile ul li {
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-                text-align: left;
-            }
-
-            .navbar-mobile ul li a {
-                text-decoration: none;
-                color: orange;
-                font-size: 18px;
-            }
-
-            /* Toggle menu visibility */
-            .navbar-mobile.active {
-                display: block;
-            }
-
-            @media (max-width: 768px) {
-    .container {
-        width: 80%; /* Increase the width on smaller screens */
-    }
-
-    .step {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .diamond {
-        position: relative;
-        left: 0;
-        margin-bottom: 10px;
-         size: 20px;
-    }
-
-    .line {
-        width: 40%;
-        margin: 10%;
-        height: 1px;
-    }
-
-    .text-container {
-    width: 50%;
-    margin-left: auto; /* Pushes the container to the right */
-    text-align:  left; /* Aligns text to the right within the container */
+.navbar-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 308px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Lightened border for a soft look */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    backdrop-filter: blur(10px); /* Glassy blur effect */
+    padding-top: 20px;
+    z-index: 1000;
+    border-radius: 12px; /* Rounded corners for card effect */
 }
 
-.text-container h4 {
-    font-size: 14px; /* Slightly smaller font size for headings */
+.navbar-mobile ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
 }
 
-.text-container p {
-    font-size: 14px; /* Adjusted font size for readability on mobile */
+.navbar-mobile ul li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.3); /* Lightened border for transparency */
+    text-align: left;
 }
-            }
+
+.navbar-mobile ul li a {
+    text-decoration: none;
+    color: orange;
+    font-size: 21px;
+}
+
+/* Toggle menu visibility */
+.navbar-mobile.active {
+    display: block;
+}
+
+
+           /* Container Styles */
+  .container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
   }
-         /* Hide mobile navbar on larger screens */
-         @media (min-width: 769px) {
+/* Heading Styles */
+  h1 {
+    font-size: 20px; /* Adjusted font size for the heading */
+    color: #333; /* Heading color */
+    margin: 20px 0; /* Margin around the heading */
+    text-align: center; /* Centered text */
+  }
+   
+  .step {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    width: 60%;
+  }
+
+  /* Diamond shape with staggered alignment */
+  .diamond {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #1565c0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 1;
+  }
+
+  .diamond span {
+    transform: rotate(-45deg);
+  }
+
+  /* Position diamonds in staggered form */
+  .step:nth-child(odd) .diamond {
+    left: -50px;
+  }
+
+  .step:nth-child(even) .diamond {
+    left: 40px;
+  }
+
+  /* Line connecting to text container */
+  .line {
+    position: relative;
+    width: 60%;
+    height: 1px; /* Thickness of the line */
+    background-color: #333; /* Color of the line */
+    margin-left: 35px; /* Space from diamond to the line */
+  }
+
+  /* Content box */
+  .text-container {
+    padding: 4px 8px;
+    width: 100%;
+    text-align: left;
+    margin-left: 1px; /* Space from line to text */
+     margin-right: 1px;
+  }
+
+  .text-container h4 {
+    margin: 0;
+    font-size: 8px;
+    color: #333;
+  }
+
+  .text-container p {
+    margin: 5px 0 0;
+    font-size: 6px;
+    color: #666;
+    padding-left: 20px; /* Indent for second line */
+  }
+
+  
+  footer {
+        display: flex; /* Use flexbox for horizontal layout */
+        justify-content: center; /* Center align content */
+        align-items: center; /* Vertically center items */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        font-size: x-small;
+    }
+    #scrollBtn {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 80px;
+    right: 2px;
+    z-index: 99;
+    font-size: 1px;
+    border: none;
+    height: 35px;
+    width: 35px;
+    outline: none;
+    background-color: #97c8d6;
+    color: white;
+    cursor: pointer;
+    
+    padding: 1px;
+    border-radius: 50%;
+}
+
+#scrollBtn:hover {
+    background-color: #E53D6D;
+}
+  }
+          /* Hide mobile navbar on larger screens */
+          @media (min-width: 769px) {
             .navbar-mobile {
                 display: none !important;
             }
-          }
+        }
+        /* Hide the default active click color for mobile */
+@media (max-width: 768px) {
+    .logo-link:active {
+        background: transparent; /* Remove any background color on active state */
+        outline: none; /* Remove the outline when the logo is clicked */
+    }
+}
 </style>
 </head>
 <body>
@@ -513,6 +635,10 @@ footer a {
 <footer>
   <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
 </footer>
+<button id="scrollBtn" onclick="topFunction()">
+  <span style="font-size: 30px;">↑</span>
+
+</button>
  <!-- JavaScript for Mobile Toggle -->
  <script>
   function toggleMobileMenu() {
@@ -521,6 +647,29 @@ footer a {
       menuIcon.classList.toggle('active');
       mobileNav.classList.toggle('active');
   }
+  // Show or hide the scroll button based on scroll position
+  window.onscroll = function() {
+            const btn = document.getElementById("scrollBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block"; // Show button
+            } else {
+                btn.style.display = "none"; // Hide button
+            }
+        };
+
+        // Smooth scroll to top
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Smooth scroll effect
+            });
+        }
+
+        // Optional: Log out function (not related to scroll button)
+        function logout() {
+            alert("You have been logged out successfully.");
+            // Here you would also add logic to actually log the user out (e.g., clearing session data)
+        }
 </script>
 </body>
 </html>

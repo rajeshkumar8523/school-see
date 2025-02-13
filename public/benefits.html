@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #f4f4f4;
+            background-color: #e0e5ec;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,28 +32,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: #97c8d6;
     padding: 20px;
-    color: white;
+    color: #333;
     z-index: 1000; /* Ensures it stays on top of other content */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for separation */
 }
 
 .logo-circle {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-.logo-circle:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;           
+            margin-top: 45%; 
+            object-fit: cover;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
 
-header .navbar ul {
+        header .navbar ul {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -67,15 +64,20 @@ header .navbar ul li {
 
 header .navbar ul li a {
     text-decoration: none;
-    color: orange;
+    color: #333;
     font-size: 18px;
+    transition: color 0.3s ease; /* Smooth transition effect */
 }
+
+header .navbar ul li a:hover {
+    color: #fff; /* Change to your desired hover color */
+}
+
 /* Adds spacing to the body content to avoid hiding it under the fixed header */
 body {
     padding-top: 100px; /* Adjust to the height of your header */
 }
-           /* Dropdown container */
-   .dropdown {
+.dropdown {
     display: inline-block;
     position: relative;
 }
@@ -83,55 +85,57 @@ body {
 /* Clickable link for dropdown */
 .dropdown .dropdown-link {
     cursor: pointer;
-    color: orange;
+    color: #333;
     padding: 5px 5px; /* Padding remains the same */
-     
     font-size: 18px; /* Small font size for dropdown link */
     text-decoration: none;
 }
 
 /* Hover effect on dropdown link */
 .dropdown .dropdown-link:hover {
-    color: orange; /* Black on hover */
+    color: #fff; /* White on hover */
 }
 
-/* Dropdown content */
+/* Dropdown content with enhanced glassy effect */
 .dropdown-content {
     display: none;
     position: absolute;
-    content: -2px; /* Align dropdown content to the center*/
-    background-color: white; /* Background color */
+    background: rgba(255, 255, 255, 0.4); /* More transparent white */
+    backdrop-filter: blur(15px) saturate(1.5); /* Increased blur and saturation for stronger glass effect */
     min-width: 200px;
-    border: 2px solid black;
-    border-radius: 1px; /* Rounded corners */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Brighter border for contrast */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
     z-index: 1;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding */
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
     float: none;
-    color: orange;
-    padding: 10px 15px; /* Adjusted padding */
+    color: black;
+    padding: 12px 20px; /* Adjusted padding */
     text-decoration: none;
     display: block;
     text-align: center;
-    font-size: 16px; /* Small font size for dropdown links */
+    font-size: 16px; /* Font size remains same */
     border-radius: 8px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
 /* Hover effect on dropdown links */
 .dropdown-content a:hover {
-    background-color: #ee4373; /* Hover background */
+    background-color:  #97c8d6;
+    color: white; /* White text on hover */
 }
 
 /* Show dropdown content on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
- /* Menu icon for mobile */
-.menu-icon {
+
+        /* Menu icon for mobile */
+        .menu-icon {
             display: none;
             flex-direction: column;
             cursor: pointer;
@@ -141,7 +145,7 @@ body {
         .menu-icon div {
             width: 25px;
             height: 3px;
-            background-color: #666;
+            background-color: #333;
             transition: transform 0.3s, opacity 0.3s;
         }
 
@@ -157,6 +161,7 @@ body {
         .menu-icon.active .bar3 {
             transform: rotate(-45deg) translate(5px, -5px);
         }
+
         .benefits-section {
             width: 90%; /* Full width with padding on smaller devices */
             max-width: 800px; /* Set maximum width for benefits section */
@@ -263,26 +268,58 @@ body {
         .icon.h4-move {
             animation: moveLeft 1s ease-in-out forwards;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-            width: 100%; /* Full width footer */
-            max-width: 100%; /* Max width for footer */
-            margin-top: 40px; /* Margin above footer */
-        }
+         /* Footer Styles */
+footer {
+  background-color: #97c8d6;
+  color: #333;
+  text-align: center;
+    
+  padding: 20px 0;
+  margin-top: auto;
+  width: 100%; /* Full-width footer */
+  box-sizing: border-box; /* Ensures padding doesn't add extra width */
+}
 
-        footer a {
-            color: white; /* Ensured links in footer are white */
-        }
-        /* Responsive styles */
-        @media (max-width: 768px) {
+footer a {
+  color: #97c8d6;
+}
+#scrollBtn {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    height: 70px;
+    width: 70px;
+    outline: none;
+    background-color: #97c8d6;
+    color: white;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+#scrollBtn:hover {
+    background-color: #E53D6D;
+}
+          /* Responsive styles */
+     @media (max-width: 768px) {
             header {
                 padding: 10px 20px;
             }
-
+            .logo-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;           
+            margin-top: 2px; 
+            object-fit: cover;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
             /* Hide main navbar and show menu icon */
             .navbar {
                 display: none;
@@ -291,9 +328,7 @@ body {
             .menu-icon {
                 display: flex;
             }
-             
 /* Left-aligned dropdown menu for mobile */
-            
 .navbar-mobile {
     display: none;
     position: fixed;
@@ -310,42 +345,117 @@ body {
     z-index: 1000;
     border-radius: 12px; /* Rounded corners for card effect */
 }
-            .navbar-mobile ul {
-                list-style: none;
-                padding: 10px;
-                margin: 0;
-            }
 
-            .navbar-mobile ul li {
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-                text-align: left;
-            }
+.navbar-mobile ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
 
-            .navbar-mobile ul li a {
-                text-decoration: none;
-                color: orange;
-                font-size: 18px;
-            }
+.navbar-mobile ul li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.3); /* Lightened border for transparency */
+    text-align: left;
+}
 
-            /* Toggle menu visibility */
-            .navbar-mobile.active {
-                display: block;
-            }
-            /* Reorder About Us section in mobile */
-            .benefits-section h2 {
-                font-size: 2em;
-            }
+.navbar-mobile ul li a {
+    text-decoration: none;
+    color: orange;
+    font-size: 21px;
+}
 
-            .timeline-item {
-                flex-direction: column;
-                text-align: left;
-            }
-             
-            .timeline-item .text-content {
-                 
-                margin: 10px 0;
+/* Toggle menu visibility */
+.navbar-mobile.active {
+    display: block;
+}
+
+.benefits-section {
+            width: 90%; /* Full width with padding on smaller devices */
+            max-width: 800px; /* Set maximum width for benefits section */
+            margin: 20px auto; /* Center the section */
         }
+
+        .benefits-section h2 {
+            font-size: 18px; /* Responsive font size */
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .timeline {
+            width: 100%; /* Full width of the container */
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Adjusted margin for better spacing */
+            position: relative;
+        }
+
+        .timeline-item .icon {
+            width: 50px; /* Reduced icon size for better proportions */
+            height: 50px; /* Ensured it remains a circle */
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em; /* Size of the icon */
+            color: #333;
+            position: relative;
+            z-index: 2;
+            transition: transform 1s ease-in-out; /* Animation duration */
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse; /* Alternates layout */
+        }
+
+        .timeline-item .text-content {
+            flex: 1;
+            padding: 10px; /* Reduced padding for text */
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 0 20px; /* Side margins */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+             
+        }
+          h4 {
+            color: #333;
+            text-align: right;
+            font-size: 12px; /* Increased heading size for emphasis */
+            font-weight: bold;
+            margin-bottom: 10px;
+        } 
+        .timeline-item .text-content h3,
+        .timeline-item .text-content h4 {
+            color: #333;
+            font-size: 12px; /* Increased heading size for emphasis */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .timeline-item .text-content p {
+            color: #777;
+            font-size: 10px;
+            line-height: 1.6; /* Improved line height for readability */
+        }
+
+        /* Timeline connector */
+        .connector {
+            position: absolute;
+            width: 4px; /* Adjusted connector width */
+            background-color: #3498db;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
         footer {
         display: flex; /* Use flexbox for horizontal layout */
         justify-content: center; /* Center align content */
@@ -353,15 +463,42 @@ body {
         flex-wrap: nowrap; /* Prevent wrapping */
         font-size: x-small;
     }
-        
+    #scrollBtn {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 80px;
+    right: 2px;
+    z-index: 99;
+    font-size: 1px;
+    border: none;
+    height: 35px;
+    width: 35px;
+    outline: none;
+    background-color: #97c8d6;
+    color: white;
+    cursor: pointer;
+    
+    padding: 1px;
+    border-radius: 50%;
+}
+
+#scrollBtn:hover {
+    background-color: #E53D6D;
+}
     }
-        /* Hide mobile navbar on larger screens */
-        @media (min-width: 769px) {
+           /* Hide mobile navbar on larger screens */
+           @media (min-width: 769px) {
             .navbar-mobile {
                 display: none !important;
             }
         }
-    
+        /* Hide the default active click color for mobile */
+@media (max-width: 768px) {
+    .logo-link:active {
+        background: transparent; /* Remove any background color on active state */
+        outline: none; /* Remove the outline when the logo is clicked */
+    }
+}
     </style>
 </head>
 <body>
@@ -516,6 +653,10 @@ body {
 <footer>
     <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
 </footer>
+<button id="scrollBtn" onclick="topFunction()">
+    <span style="font-size: 30px;">↑</span>
+
+</button>
      <script>
         // Apply movement classes on page load
         window.onload = function() {
@@ -532,6 +673,29 @@ body {
             const mobileNav = document.getElementById('navbar-mobile');
             menuIcon.classList.toggle('active');
             mobileNav.classList.toggle('active');
+        }
+        // Show or hide the scroll button based on scroll position
+       window.onscroll = function() {
+            const btn = document.getElementById("scrollBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block"; // Show button
+            } else {
+                btn.style.display = "none"; // Hide button
+            }
+        };
+
+        // Smooth scroll to top
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Smooth scroll effect
+            });
+        }
+
+        // Optional: Log out function (not related to scroll button)
+        function logout() {
+            alert("You have been logged out successfully.");
+            // Here you would also add logic to actually log the user out (e.g., clearing session data)
         }
     </script>
     

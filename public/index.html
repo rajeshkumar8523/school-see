@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School See</title>
 
+    <title>School see</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="index.css">
+
     <link rel="stylesheet" href="styles.css?v=1.1">
+
+    
+     
 </head>
 <body>
+<!-- Background Image -->
+<img src="https://assets.onecompiler.app/42ucesb3u/42xb369e7/image%20(3).png" alt="Background" class="background-image">
 
     <!-- Header with Navigation -->
     <header>
-        <a href="index.html">
+        <a href="index.html"> <!-- Link to the home page (adjust the link as needed) -->
             <div class="logo">
                 <img src="https://assets.onecompiler.app/42ucesb3u/42wr2w44q/image%20(2).png" alt="Your Logo" class="logo-circle">
             </div>
         </a>
-
         <nav class="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <!-- Dropdown for logins -->
+                <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-link">Logins</a>
+                    <a class="dropdown-link">Logins</a>
                     <div class="dropdown-content">
                         <a href="admin.html">Admin Login</a>
                         <a href="teacher.html">Teacher Login</a>
@@ -35,7 +40,7 @@
                         <a href="student.html">Student Login</a>
                         <a href="counselor.html">Counselor Login</a>
                         <a href="management.html">Management Login</a>
-                        <a href="employee.html">Employee(Role Based)</a>
+                        <a href="employee.html">Employee (Role Based)</a>
                     </div>
                 </li>
                 <li><a href="#features">Features</a></li>
@@ -45,143 +50,248 @@
                 <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
+        <div class="menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Mobile Navbar -->
+    <nav class="navbar-mobile" id="navbar-mobile">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-link">Logins</a>
+                <div class="dropdown-content">
+                    <a href="admin.html">Admin Login</a>
+                    <a href="teacher.html">Teacher Login</a>
+                    <a href="parent.html">Parent Login</a>
+                    <a href="student.html">Student Login</a>
+                    <a href="counselor.html">Counselor Login</a>
+                    <a href="management.html">Management Login</a>
+                    <a href="employee.html">Employee (Role Based)</a>
+                </div>
+            </li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="benefits.html">Benefits</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+          <!-- Main Container -->
     <div class="container">
         <!-- Text Section -->
         <div class="text-section">
-            <h1>School See</h1>
-            <p>At <strong>SCHOOL SEE</strong>, we believe in nurturing young minds to achieve their full potential. Our mission is to provide a well-rounded education that fosters academic excellence, creativity, and character development.</p>
-            <img src="https://assets.onecompiler.app/42ucesb3u/42xb369e7/image%20(3).png" alt="Background">
+            <h1> School See  </h1>
+            <p>At <strong>SCHOOL SEE</strong> we believe in nurturing young minds to achieve their full potential. Our mission is to provide a well-rounded education that fosters academic excellence, creativity, and character development.</p>
             <a href="#" class="cta-button">Login</a>
         </div>
     </div>
-
-    <!-- Why Choose Us Section -->
+             <!-- Why Choose Us Section -->
     <section class="why-choose-us">
         <div class="why-choose-text">
-            <h1>Why <span class="highlight">Choose Us?</span></h1>
-            <p>Choosing the right school for your child is a pivotal decision. At <strong>SCHOOL SEE</strong>, we are committed to fostering a nurturing, inspiring, and dynamic environment that prepares our students for lifelong success. Our curriculum includes extracurricular activities that promote teamwork, creativity, and leadership skills, while also ensuring academic and social-emotional growth.</p>
+            <h1>Why </h1>
+            <h1> <span class="highlight">Choose Us?</span></h1> 
+            <p>Choosing the right school for your child is a pivotal decision. At <strong>SCHOOL SEE</strong>, we are committed</p>
+           <p>to fostering a nurturing, inspiring, and dynamic environment that prepares our students for lifelong  </p>
+            <p>success. the importance of developing not just academically Here’s what sets us apart:</p>
+            <p> curriculum includesextracurricularbut also socially and emotionally. Our   </p>
+            <p> curriculum includesextracurricularbut also socially and emotionally.    </p>
+            <p>activities that promote teamwork, creativity, and leadership skills.</p>
+            <p>activities that promote teamwork, creativity, and leadership </p>
         </div>
         <div class="why-choose-image">
-            <img src="https://assets.onecompiler.app/42ucesb3u/42wxwxs2r/20241102_235607_0000.png" alt="Team brainstorming ideas">
+            <img src="https://assets.onecompiler.app/42y68y97m/42ypuxurf/20241102_235607_0000.png" alt="Team brainstorming ideas">
         </div>
     </section>
+         
+        
+<!-- Features Section -->
+<section class="features" id="features">
+    <h2>Features</h2>
+    <p>Explore various features related to school management.</p>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2>Features</h2>
-        <p>Explore various features related to school management.</p>
-
-        <!-- Swiper Container for Right Slider -->
-        <div class="swiper-container swiper-right">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">🖥️</div>
-                        <h3>Digital Content</h3>
-                        <p>Access digital resources for better learning.</p>
-                        <button><a href="digital.html">View More</a></button>
-                    </div>
+    <!-- Swiper Container for Right Slider -->
+    <div class="swiper-container swiper-right">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">🖥</div>
+                    <h3>Digital Content</h3>
+                    <p>Access digital resources for better learning.</p>
+                    <button><a href="digital.html">View More  </a> </button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">📋</div>
-                        <h3>Assessments</h3>
-                        <p>Manage & evaluate student assessments easily.</p>
-                        <button><a href="assess.html">View More</a></button>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">📋</div>
+                    <h3>Assessments</h3>
+                    <p>Manage & evaluate student assessments easily.</p>
+                    <button><a href="assess.html"> View More</a></button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">🚌</div>
-                        <h3>Bus Tracking</h3>
-                        <p>Track school bus routes & schedules in real time.</p>
-                        <button><a href="tracking.html">View More</a></button>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">🚌</div>
+                    <h3>Bus Tracking</h3>
+                    <p>Track school bus routes & schedules in real time.</p>
+                    <button><a href="tracking.html"> View More</a></button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">📊</div>
-                        <h3>Attendance Graph</h3>
-                        <p>View and analyze attendance data visually.</p>
-                        <button><a href="attendance.html">View More</a></button>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Attendance Graph</h3>
+                    <p>View and analyze attendance data visually.</p>
+                    <button><a href="attandence.html"> View More</a></button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Swiper Container for Left Slider -->
-        <div class="swiper-container swiper-left">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">💸</div>
-                        <h3>Fee Status</h3>
-                        <p>Check and update the status of student fees.</p>
-                        <button><a href="fee.html">View More</a></button>
-                    </div>
+    <!-- Swiper Container for Left Slider -->
+    <div class="swiper-container swiper-left">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">💸</div>
+                    <h3>Fee Status</h3>
+                    <p>Check and update the status of student fees.</p>
+                    <button><a href="fee.html"> View More</a></button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">📅</div>
-                        <h3>School Calendar</h3>
-                        <p>Access and update important dates in the calendar.</p>
-                        <button><a href="calendar.html">View More</a></button>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">📅</div>
+                    <h3>School Calendar</h3>
+                    <p>Access and update important dates in the here.</p>
+                    <button><a href="calendar.html"> View More</a></button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">📢</div>
-                        <h3>School Notification</h3>
-                        <p>Send & receive important school notifications.</p>
-                        <button><a href="notifications.html">View More</a></button>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">📢</div>
+                    <h3>School Notification</h3>
+                    <p>Send & receive important school notifications.</p>
+                    <button><a href="notifications.html"> View More</a></button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="feature-card">
-                        <div class="icon">📑</div>
-                        <h3>Student Reports</h3>
-                        <p>View comprehensive student reports.</p>
-                        <button><a href="reports.html">View More</a></button>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="feature-card">
+                    <div class="icon">📑</div>
+                    <h3>Student Reports</h3>
+                    <p> View comprehensive student reports.</p>
+                    <button><a href="reports.html"> View More</a></button>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+<!-- Essentials Section -->
+<div class="essentials-section">
+    <h2 class="essentials-heading">ESSENTIALS</h2>
+    <div class="essentials-items">
+      <!-- Privacy Policy -->
+      <div class="essential-item">
+        <a href="pp.html" class="link"> 
+          <div class="icon-container">
+            <i class="fas fa-user-shield icon"></i>
+          </div>
+        </a>
+        <h3>Privacy Policy</h3>
+        <p>Protecting your personal information and privacy.</p>
+      </div>
+        <!-- FAQ -->
+        <div class="essential-item">
+            <a href="faq.html" class="link">
+              <div class="icon-container">
+                <i class="fas fa-question-circle icon"></i>
+              </div>
+            </a>
+            <h3>FAQ</h3>
+            <p>Answers to common questions about rentals.</p>
+          </div>
+      <!-- Terms & Conditions -->
+      <div class="essential-item">
+        <a href="tc.html" class="link">
+          <div class="icon-container">
+            <i class="fas fa-file-alt icon"></i>
+          </div>
+        </a>
+        <h3>Terms & Conditions</h3>
+        <p>Review your rights and responsibilities here.</p>
+      </div>
+    </div>
+  </div>
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
-    </footer>
+<footer>
+    <p>&copy; 2024 School See. All Rights Reserved. Powered by Vspaze Technologies</p>
+</footer>
+<button id="scrollBtn" onclick="topFunction()">
+    <span style="font-size: 30px;">↑</span>
 
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        // Right slider instance (slides to the right)
-        var swiperRight = new Swiper('.swiper-right', {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-        });
+</button>
 
-        // Left slider instance (slides to the left)
-        var swiperLeft = new Swiper('.swiper-left', {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-                reverseDirection: true,  // Left direction
-            },
-        });
+   <!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    // Right slider instance (slides to the right)
+    var swiperRight = new Swiper('.swiper-right', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+    });
+
+    // Left slider instance (slides to the left)
+    var swiperLeft = new Swiper('.swiper-left', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+            reverseDirection: true,  // Left direction
+        },
+    });
+    <!-- JavaScript for Mobile Toggle -->
+     
+        function toggleMobileMenu() {
+            const menuIcon = document.querySelector('.menu-icon');
+            const mobileNav = document.getElementById('navbar-mobile');
+            menuIcon.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+        
+       // Show or hide the scroll button based on scroll position
+       window.onscroll = function() {
+            const btn = document.getElementById("scrollBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block"; // Show button
+            } else {
+                btn.style.display = "none"; // Hide button
+            }
+        };
+
+        // Smooth scroll to top
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Smooth scroll effect
+            });
+        }
+
+        // Optional: Log out function (not related to scroll button)
+        function logout() {
+            alert("You have been logged out successfully.");
+            // Here you would also add logic to actually log the user out (e.g., clearing session data)
+        }
     </script>
-
 </body>
 </html>
